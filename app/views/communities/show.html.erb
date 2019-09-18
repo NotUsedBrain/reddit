@@ -1,0 +1,25 @@
+<p>
+  <strong>Name:</strong>
+  <%= @community.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @community.description %>
+</p>
+
+<p>
+  <strong>Created by:</strong>
+  <%= current_user.nickname %>
+</p>
+
+<p><%= pluralize(@community.posts.count, 'Post') %></p><br>
+<%= render @community.posts %>
+
+<h3>Posts</h3>
+<%= render 'posts/form'%>
+
+
+
+<%= link_to 'Edit', edit_community_path(@community) %> |
+<%= link_to 'Back', communities_path %>
