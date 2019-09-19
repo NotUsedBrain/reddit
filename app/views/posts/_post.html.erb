@@ -2,4 +2,4 @@
 
 <p><%= post.content%><p>
 
-<%= link_to 'Show', post%>
+<%= link_to 'Show', community_post_path(post.community.id, post.id)%>
