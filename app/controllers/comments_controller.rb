@@ -6,8 +6,12 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
+
     @comment = @post.comments.create(params[:comment].permit(:body))
-    redirect_to post_path(@post)
+    @comment.user = current_user
+    @comment.save
+
+    redirect_to community_post_comment_path(@community, @post.comments, @comment)
   end
 
   def show

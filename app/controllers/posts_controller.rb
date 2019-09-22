@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
 
-
   def create
     @community = Community.find(params[:community_id])
 
