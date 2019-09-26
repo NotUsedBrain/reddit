@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     @community = Community.find(params[:community_id])
     @post = @community.posts.find(params[:id])
     @post.destroy
-    redirect_to post_path(@post)
+    redirect_to community_post_path(@post.community, @post)
   end
 
 end

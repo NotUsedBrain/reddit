@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.save
 
-    redirect_to community_post_comment_path(@community, @post.comments, @comment)
+    redirect_to community_post_path(@post.community, @post)
   end
 
   def show
@@ -22,6 +22,6 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     @comment.destroy
-    redirect_to post_path(@post)
+    redirect_to community_post_path(@post.community, @post)
   end
 end
