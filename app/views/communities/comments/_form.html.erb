@@ -1,4 +1,4 @@
-<%= form_for([@post.community, @post, @post.comments.build]) do |f| %>
+<%= form_for([@post.community, :communities, @post, @post.comments.build]) do |f| %>
 
 <p>
   <%= f.label :body %>

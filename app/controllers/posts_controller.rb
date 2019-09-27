@@ -1,24 +1,20 @@
 class PostsController < ApplicationController
+  def new
+    @post = Post.new
+  end
 
   def create
-    @community = Community.find(params[:community_id])
-
-    @post = @community.posts.create(params[:post].permit(:title, :content))
-    @post.user = current_user
-    @post.save
-
-    redirect_to community_path(@community)
+    @post = Post.new(post_params.merge(user: current_user))
+    if @post.save
+      redirect_to community_communities_post_path(@post.community, @post)
+    else
+      render :new
+    end
   end
 
-  def show
-    @post = Post.find(params[:id])
-  end
+  private
 
-  def destroy
-    @community = Community.find(params[:community_id])
-    @post = @community.posts.find(params[:id])
-    @post.destroy
-    redirect_to community_post_path(@post.community, @post)
+  def post_params
+    params.require(:post).permit(:title, :content, :community_id)
   end
-
 end
