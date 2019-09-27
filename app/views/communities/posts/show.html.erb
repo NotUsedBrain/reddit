@@ -11,8 +11,8 @@
 <h3> <%= @post.comments.count %> Comments </h3>
      <%= render @post.comments %>
      <h3> Add a Comment: </h3>
-     <%= render 'comments/form' %>
+     <%= render 'communities/comments/form' %>
 
 
-<%= link_to 'Edit', edit_community_post_path(@post.community, @post) %> |
+<%= link_to 'Edit', edit_community_communities_post_path(@post.community, @post) %> |
 <%= link_to 'Back', community_path(@post.community) %>

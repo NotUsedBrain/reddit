@@ -2,10 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
   
   resources :communities do
-    resources :posts do
-      resources :comments
+    namespace :communities do
+      resources :posts do
+        resources :comments
+      end
     end
   end
+
+  resources :posts, only: [:new, :create]
   
   root to: 'communities#index'
 
