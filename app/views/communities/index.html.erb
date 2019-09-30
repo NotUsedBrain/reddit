@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <h1>Communities</h1>
 
@@ -11,7 +10,7 @@
     </tr>
   </thead>
 
-  <tbody>
+  <div>
     <% @communities.each do |community| %>
       <tr>
         <td><%= community.name %></td>
@@ -21,13 +20,5 @@
         <td><%= link_to 'Destroy', community, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-  </tbody>
+  </div>
 </table>
-
-<br>
-
-<%= link_to 'New Community', new_community_path %>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
