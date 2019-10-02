@@ -9,7 +9,9 @@
 </p>
 
 <h3> <%= @post.comments.count %> Comments </h3>
-     <%= render @post.comments %>
+     <% @post.comments.each do |comment| %>
+     <%= render 'communities/comments/comment', comment: comment %>
+     <% end %>
      <h3> Add a Comment: </h3>
      <%= render 'communities/comments/form' %>
 

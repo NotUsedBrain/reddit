@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :posts, only: [:new, :create, :show] do
+  resources :posts, only: [:new, :create, :show, :destroy] do
     resources :likes, only: [:create, :update, :destroy] 
   end
 

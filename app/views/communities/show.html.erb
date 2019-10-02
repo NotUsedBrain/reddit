@@ -15,12 +15,7 @@
 <p><%= pluralize(@community.posts.count, 'Post') %></p><br>
 <% @community.posts.each do |post| %>
   <%= render 'communities/posts/post', post: post %>
+  <%= link_to 'Edit', edit_community_path(@community) %>
+  <%= link_to 'Back', communities_path %>
+  <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
-
-<h3>Posts</h3>
-<%= render 'communities/posts/form'%>
-
-
-
-<%= link_to 'Edit', edit_community_path(@community) %> |
-<%= link_to 'Back', communities_path %>
