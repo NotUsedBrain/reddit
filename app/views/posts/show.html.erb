@@ -21,6 +21,5 @@
   <% end %>
   <p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 
-
 <%= link_to 'Edit', edit_community_communities_post_path(@post.community, @post) %> |
 <%= link_to 'Back', community_path(@post.community) %>

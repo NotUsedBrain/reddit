@@ -9,8 +9,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :posts, only: [:new, :create]
-  
+  resources :posts, only: [:new, :create, :show] do
+    resources :likes, only: [:create, :update, :destroy] 
+  end
+
   root to: 'communities#index'
 
 end
